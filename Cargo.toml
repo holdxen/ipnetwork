@@ -1,7 +1,10 @@
 [package]
 name = "ipnetwork"
 version = "0.21.1"
-authors = ["Abhishek Chanda <abhishek.becs@gmail.com>", "Linus Färnstrand <faern@faern.net>"]
+authors = [
+    "Abhishek Chanda <abhishek.becs@gmail.com>",
+    "Linus Färnstrand <faern@faern.net>",
+]
 description = "A library to work with IP CIDRs in Rust"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/achanda/ipnetwork"
@@ -12,12 +15,12 @@ edition = "2021"
 rust-version = "1.80.0"
 
 [dependencies]
-serde = { version = "1.0.200", optional = true }
+serde = { version = "1", optional = true }
 schemars = { version = "1.0.4", optional = true }
 
 [dev-dependencies]
-serde_json = "1.0.116"
-criterion = {version = "0.5.1", features= ["html_reports"]}
+serde_json = "1"
+criterion = { version = "0.5.1", features = ["html_reports"] }
 
 [badges]
 travis-ci = { repository = "achanda/ipnetwork" }
@@ -28,6 +31,7 @@ maintenance = { status = "passively-maintained" }
 # Since most people add a dependency without `default-features = false` they involuntarily
 # pull in unused dependencies.
 default = []
+serde = ["dep:serde"]
 
 [[bench]]
 name = "parse_bench"
